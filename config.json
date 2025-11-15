@@ -1,0 +1,8 @@
+{
+  "replace_rules": {
+    "O": "0",
+    "I": "1",
+    "l": "1"
+  },
+  "specific_replacements": {}
+}

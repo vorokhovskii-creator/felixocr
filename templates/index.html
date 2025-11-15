@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felix OCR Web</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Felix OCR Web</h1>
+        <p class="subtitle">Извлечение артикулов автозапчастей из изображений</p>
+
+        <div class="card">
+            <h2>Загрузка изображения</h2>
+            
+            <div class="upload-area" id="uploadArea">
+                <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <p class="drag-text">Перетащите изображение сюда</p>
+                <p class="or-text">или</p>
+                <button class="file-button" id="fileButton">Выбрать файл</button>
+                <input type="file" id="fileInput" accept=".png,.jpg,.jpeg,.webp" hidden>
+            </div>
+
+            <div id="previewContainer" class="preview-container" style="display: none;">
+                <h3>Предпросмотр</h3>
+                <img id="previewImage" alt="Preview" class="preview-image">
+                <button class="button-secondary" id="removeImageButton">Выбрать другой файл</button>
+            </div>
+
+            <button class="button-primary" id="processButton" style="display: none;">
+                <span id="buttonText">Обработать</span>
+                <span id="loadingSpinner" class="spinner" style="display: none;"></span>
+            </button>
+        </div>
+
+        <div id="resultsContainer" class="results-container" style="display: none;">
+            <h2>Результаты</h2>
+            <div id="resultsList" class="results-list"></div>
+        </div>
+
+        <div id="errorContainer" class="error-container" style="display: none;">
+            <h3>Ошибка</h3>
+            <p id="errorMessage"></p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
